@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import { fetchPhotos, searchPhotos } from "../api/pixels";
 import { MasonryGrid } from "../components/MasonryGrid";
 import { SearchBar } from "../components/SearchBar";
@@ -35,7 +35,10 @@ export const HomePage = () => {
   const hasMounted = useRef(false);
 
   const isSearching = searchQuery.length > 0;
-  const currentPhotos = isSearching ? searchResults : photos;
+
+  const currentPhotos = useMemo(() => {
+    return isSearching ? searchResults : photos;
+  }, [isSearching, searchResults, photos]);
 
   const loadMorePhotos = useCallback(async () => {
     if (loading || !hasMore) return;
@@ -122,14 +125,16 @@ export const HomePage = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          if (isSearching) {
-            loadMoreSearchResults();
-          } else {
-            loadMorePhotos();
-          }
+          setTimeout(() => {
+            if (isSearching) {
+              loadMoreSearchResults();
+            } else {
+              loadMorePhotos();
+            }
+          }, 100);
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "200px", threshold: 0.1 }
     );
 
     const currentRef = observerRef.current;

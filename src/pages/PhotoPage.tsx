@@ -2,9 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { PhotoDetails } from "../components/PhotoDetails";
+import { PhotoDetailsSkeleton } from "../components/PhotoDetailsSkeleton";
 import type { Photo } from "../types/photo";
 import { fetchPhotoById } from "../api/pixels";
-import { PhotoDetailsSkeleton } from "../components/PhotoDetailsSkeleton";
 
 export const PhotoPage = () => {
   const { id } = useParams();
@@ -23,7 +23,7 @@ export const PhotoPage = () => {
     <Container>
       <BackButton onClick={() => navigate(-1)}>← Back</BackButton>
       <Wrapper>
-        {!photo ? <PhotoDetailsSkeleton /> : <PhotoDetails photo={photo} />}
+        {photo ? <PhotoDetails photo={photo} /> : <PhotoDetailsSkeleton />}
       </Wrapper>
     </Container>
   );
