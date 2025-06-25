@@ -8,7 +8,6 @@
 - Custom virtualization for performance
 - styled-components for styling
 - Error boundaries for reliability
-- Testing ready with Jest and React Testing Library
 
 ## Setup
 
@@ -35,27 +34,13 @@
 - Custom virtualization with scroll handling
 - Lazy-loaded images
 
-## TODO:
-
-- Equal width of image in photo page +
-- Photo page: title, description, photographer's name, and date taken +
-- Unit tests -
-- Submit your application as a Git repository (e.g., GitHub, GitLab, Bitbucket). Ensure to include all source
-  files and documentation. Make sure to commit regularly so we can track your development process.
-
-## Additional:
-
-- Web vitals metrics
-- Implement utility and generic types where appropriate
-- Discuss how you ensured the application's performance and any tools or techniques you used.
-- Search Functionality: Implement a search feature that allows users to search for photos by
-  keywords. The search results should update the masonry grid dynamically, fetching and
-  displaying relevant photos from the Pexels API https://www.pexels.com/api/documentation/#photos-search.
-- use next_page property
-
 ## Potential improvements:
 
 - Caching data from backend to avoid repetitive API calls
-- Use Tanstack query library to make api calls, store and cache the data
+- Use Tanstack query library to make api calls, store and cache data
+- Add unit tests using Vitest and React Testing Library
 - Add "msw" to mock API calls in tests
-- Set image template size exact the same as an image itself using width and height properties of an image
+- Set image skeleton sizes exact the same as an image itself
+- Improve masonry grid, for now there is an issue that images a bit shift when new page is loaded
+- Add better spinner for loading images in grid
+- Use next_page property to detect if there is more data to load
