@@ -36,3 +36,29 @@ export const fetchPhotoById = async (id: number): Promise<Photo> => {
     alt: p.alt,
   };
 };
+
+export const searchPhotos = async (
+  query: string,
+  page: number
+): Promise<Photo[]> => {
+  const response = await fetch(
+    `${apiUrl}/search?query=${encodeURIComponent(
+      query
+    )}&page=${page}&per_page=30`,
+    {
+      headers: {
+        Authorization: import.meta.env.VITE_PEXELS_API_KEY,
+      },
+    }
+  );
+  const data = await response.json();
+
+  return data.photos.map((p: PexelsPhoto) => ({
+    id: p.id,
+    url: p.src.large,
+    width: p.width,
+    height: p.height,
+    photographer: p.photographer,
+    alt: p.alt,
+  }));
+};

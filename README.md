@@ -34,7 +34,6 @@
 
 - Custom virtualization with scroll handling
 - Lazy-loaded images
-- Nice to have: caching
 
 ## TODO:
 
@@ -52,9 +51,11 @@
 - Search Functionality: Implement a search feature that allows users to search for photos by
   keywords. The search results should update the masonry grid dynamically, fetching and
   displaying relevant photos from the Pexels API https://www.pexels.com/api/documentation/#photos-search.
+- use next_page property
 
 ## Potential improvements:
 
 - Caching data from backend to avoid repetitive API calls
 - Use Tanstack query library to make api calls, store and cache the data
 - Add "msw" to mock API calls in tests
+- Set image template size exact the same as an image itself using width and height properties of an image

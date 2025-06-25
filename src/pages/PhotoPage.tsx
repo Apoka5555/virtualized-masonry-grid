@@ -68,9 +68,9 @@ const Wrapper = styled.div`
   margin-top: 10px;
   width: 100%;
 
-  @media (max-width: 900px) {
+  @media (max-width: 700px) {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 1.5rem 1rem;
     gap: 1.5rem;
     min-height: auto;
