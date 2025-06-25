@@ -30,6 +30,7 @@ export const PhotoPage = () => {
 };
 
 const Container = styled.div`
+  max-width: 1200px;
   margin: 0 auto;
   padding: 32px 24px 24px 24px;
   border-radius: 12px;
@@ -67,10 +68,11 @@ const Wrapper = styled.div`
   margin-top: 10px;
   width: 100%;
 
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 1rem;
     gap: 1.5rem;
+    min-height: auto;
   }
 `;

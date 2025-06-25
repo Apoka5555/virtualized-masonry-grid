@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { fetchPhotos } from "../api/pixels";
 import { MasonryGrid } from "../components/MasonryGrid";
-// import { useVirtualizedGrid } from "../hooks/useVirtualizedGrid";
 import type { Photo } from "../types/photo";
 import { getHomePageState, setHomePageState } from "../store/homePageStore";
 

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { Info, Photographer, Description } from "./PhotoDetails";
+import { Info, Photographer, Description, ImageWrapper } from "./PhotoDetails";
 
 const shimmer = keyframes`
   0% { background-position: -400px 0; }
@@ -15,9 +15,22 @@ const SkeletonBox = styled.div<{ width?: string; height?: string }>`
   height: ${({ height }) => height || "18px"};
 `;
 
+const SkeletonImageWrapper = styled(ImageWrapper)`
+  /* Same styles as ImageWrapper but with skeleton content */
+`;
+
+const SkeletonImage = styled(SkeletonBox)`
+  max-width: 100%;
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+`;
+
 export const PhotoDetailsSkeleton = () => (
   <>
-    <SkeletonBox width="100%" height="350px" />
+    <SkeletonImageWrapper>
+      <SkeletonImage />
+    </SkeletonImageWrapper>
     <Info>
       <Photographer>
         <SkeletonBox width="60%" />
